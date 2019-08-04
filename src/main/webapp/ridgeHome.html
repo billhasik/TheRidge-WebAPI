@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>The Ridge Wine And Spirits</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!--   <link rel="stylesheet" type="text/css" href="css/resume.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="js/ridge.js"></script>
+<script src="js/ng-file-upload-bower-12.2.13/ng-file-upload-shim.min.js"></script>    
+<script src="js/ng-file-upload-bower-12.2.13/ng-file-upload.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/Ridge.css">
+</head>
+<body ng-app="RidgeApp" ng-controller="RidgeController">
+	<div class="container-fluid">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		    </button>
+		    <a class="navbar-brand" href="#!/home">TheRidgeWineandSpirits</a>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="#!newItems">New!</a></li>
+					<li><a href="#!inventory">Inventory</a></li>
+					<li><a href="#!storeMap">Store Map</a></li>
+					<li><a href="#!customerRequestPage">Customer Request Form</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">									
+					<li><a href="#!stack">Stack</a></li>
+					<li><a href="#!myResume">My Resume</a></li>
+					<li><a href="#!admin">Admin</a></li>					
+					<li class="navbar-text">  </li>			
+				</ul>
+			</div>	
+		</nav>
+		<br>
+		<br>
+		<br>
+		<div ng-view></div>
+	</div>
+</body>
+</html>

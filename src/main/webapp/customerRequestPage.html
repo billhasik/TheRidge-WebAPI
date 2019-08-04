@@ -1,0 +1,99 @@
+<div class="container">
+	<div ng-show="showRequestPage">
+		<h2>Welcome to the Customer Request Form</h2>
+		<h3>
+			<p>Please press the button below in order to make specific request to be ordered soon.</p>
+			<p><button type="button" class="btn btn-success" ng-click="sendToRequestForm()">REQUEST</button></p>
+			<div ng-show="sentSuccess">
+				<div class="alert alert-success text-center">Request Sent!!</div>
+			</div>
+		</h3>
+	</div>
+	<div ng-show="showRequestForm">
+		<p><button type="button" class="btn btn-danger" ng-click="sendToRequestPage()">GO BACK</button></p>
+		<table class="table small-table text-center">
+			
+			<tr>
+				<td>
+					<p>Please enter the name of the product you want to purchase.</p>
+					<label>Product Name:</label>
+					<br>
+					<input type="text" required ng-model="request.requestProductName" ng-maxLength="25">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Please enter a description of the bottle and what size you would prefer.</p>
+					<label>Description:</label><br>
+		 				<textarea
+							type="text" ng-model="request.requestProductDescription"
+							ng-minlength="4" ng-maxlength="200"
+							rows="10" cols="50">
+						</textarea>	
+				</td>
+			</tr>
+			<tr class="text-center">
+				<td>
+					<p>Please upload a picture if possible (will most likely make it easier to find/identify).</p>
+					<div class="container-fluid">
+						<div>
+							<br>
+							<h3>
+							Insert Picture Here: <br>
+							<div >
+								<input type="file" ngf-select="" ng-model="picFile"
+									name="file" ngf-accept="'image/*'">
+							</div>
+							</h3>
+							<br> <img ngf-src="picFile" class="img-thumbnail">
+							<h3>
+								<button ng-click="savePic(picFile)">Save</button>
+							</h3>
+				
+						</div>
+					</div>
+											
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Please enter your name, so we know who to contact</p>
+					<label>Customer Name:</label>
+					<br>
+					<input type="text" required ng-model="request.requestCustomerName" ng-maxLength="25">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Please choose how you would like to be contacted if/when the product comes in.</p>
+					<form>
+					    <h2><span class="bg-primary"> Options: </span></h2>
+					    <br>
+					    Text: <input type="checkbox" ng-model="textPreferred">
+					    <br>
+					    Phone Call: <input type="checkbox" ng-model="callPreferred">
+					    <br>
+					    Email: <input type="checkbox" ng-model="emailPreferred">
+				   </form>
+					  
+					  
+					  
+					  
+					  
+					  <h3 ng-show="textPreferred || callPreferred"> 
+					  		Phone Number: <input type="text" ng-model="request.requestPhoneNumber">
+					  </h3>
+					  <h3 ng-show="emailPreferred">
+					  		Email: <input type="text" ng-minlength="3" ng-model="request.requestEmail">
+					  </h3>
+				</td>
+			</tr>
+						
+		</table>
+		
+		<button type="button" class="btn btn-success" ng-click="sendRequest(request)">SEND REQUEST</button>
+		<div ng-show="sendingError">
+			<div class="alert alert-danger">Error in Sending</div>
+		</div>
+	</div>	
+</div>
