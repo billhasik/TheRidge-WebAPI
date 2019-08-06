@@ -1,13 +1,16 @@
 <div class="container">
 	<div ng-show="showRequestPage">
-		<h2>Welcome to the Customer Request Form</h2>
-		<h3>
-			<p>Please press the button below in order to make specific request to be ordered soon.</p>
-			<p><button type="button" class="btn btn-success" ng-click="sendToRequestForm()">REQUEST</button></p>
-			<div ng-show="sentSuccess">
-				<div class="alert alert-success text-center">Request Sent!!</div>
-			</div>
-		</h3>
+		<div class="well text-center" id="color2">
+			<h2>Welcome to the Customer Request Form</h2>
+			<h3>
+				<p>Please press the button below in order to make specific request to be ordered soon.</p>
+				<br><br>
+				<p><button type="button" class="btn btn-success" ng-click="sendToRequestForm()">REQUEST</button></p>
+				<div ng-show="sentSuccess">
+					<div class="alert alert-success text-center">Request Sent!!</div>
+				</div>
+			</h3>
+		</div>	
 	</div>
 	<div ng-show="showRequestForm">
 		<p><button type="button" class="btn btn-danger" ng-click="sendToRequestPage()">GO BACK</button></p>
@@ -95,5 +98,6 @@
 		<div ng-show="sendingError">
 			<div class="alert alert-danger">Error in Sending</div>
 		</div>
+		<br><br>
 	</div>	
 </div>
