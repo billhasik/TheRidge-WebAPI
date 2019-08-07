@@ -1,12 +1,12 @@
 <div class="container-fluid" ng-show="showRequestBoard">
 	<div class="row">
-		<h3>
-			<div class="text-left col-4">
-					<h2 class="text-left">
+		<div class="text-left col-4">
+				<h5 class="text-left">
+					<div class="well">
 						Please type your username here: <input type="text" ng-model="adminUsername"></input>
-					</h2>
-			</div>
-		</h3>
+					</div>
+				</h5>
+		</div>
 	</div>
 	<br><br>
 	<h3 class="text-center">
@@ -26,39 +26,40 @@
 				<input type="text" maxlength="15" ng-model="searchValue">
 			</h2>  
 		</div>
-		<table class="table table-hover table-bordered">
-			<tr>
-				<td colspan="12" class='text-center info'>
-					<h4>Request Board</h4>
-				</td>
-			</tr>
-			<tr class='info'>
-				<th class="text-center col-sm-1">#</th>
-				<th class="text-center col-sm-1">Date/Time</th>
-				<th class="text-center col-sm-2">Product Name</th>
-				<th class="text-center col-sm-2">Description</th>
-				<th class="text-center col-sm-2">Image</th>
-				<th class="text-center col-sm-1">Customer</th>
-				<th class="text-center col-sm-1">Phone#</th>
-				<th class="text-center col-sm-2">Email</th>
-			</tr>
-			<tr ng-repeat="request in requests | filter: searchValue" ng-click="sendToUpdateRequest(request)">
-				<td class="col-sm-1 text-center">{{request.requestNumber}}</td>
-				<td class="col-sm-1 text-center">{{request.requestDateTime}}</td>
-				<td class="col-sm-2 text-center">{{request.requestProductName}}</td>
-				<td class="col-sm-2 text-center">{{request.requestProductDescription}}</td>
-				<td class="col-sm-2 text-center">{{request.requestProductImage}}</td>
-				<td class="col-sm-1 text-center">{{request.requestCustomerName}}</td>
-				<td class="col-sm-1 text-center">{{request.requestPhoneNumber}}</td>
-				<td class="col-sm-2 text-center">{{request.requestEmail}}</td>
-			</tr>
-			<tr>							
-				<td colspan="12" class="text-center info">
-					<h4>Select a request to 'edit'</h4>
-				</td>
-			</tr>
-			
-		</table>
+		<div class="well" id="color4">
+			<table class="table table-hover table-bordered">
+				<tr>
+					<td colspan="12" class='text-center info'>
+						<h4>Request Board</h4>
+					</td>
+				</tr>
+				<tr class='info'>
+					<th class="text-center col-sm-1">#</th>
+					<th class="text-center col-sm-1">Date/Time</th>
+					<th class="text-center col-sm-2">Product Name</th>
+					<th class="text-center col-sm-2">Description</th>
+					<th class="text-center col-sm-2">Image</th>
+					<th class="text-center col-sm-1">Customer</th>
+					<th class="text-center col-sm-1">Phone#</th>
+					<th class="text-center col-sm-2">Email</th>
+				</tr>
+				<tr ng-repeat="request in requests | filter: searchValue" ng-click="sendToUpdateRequest(request)">
+					<td class="col-sm-1 text-center">{{request.requestNumber}}</td>
+					<td class="col-sm-1 text-center">{{request.requestDateTime}}</td>
+					<td class="col-sm-2 text-center">{{request.requestProductName}}</td>
+					<td class="col-sm-2 text-center">{{request.requestProductDescription}}</td>
+					<td class="col-sm-2 text-center">{{request.requestProductImage}}</td>
+					<td class="col-sm-1 text-center">{{request.requestCustomerName}}</td>
+					<td class="col-sm-1 text-center">{{request.requestPhoneNumber}}</td>
+					<td class="col-sm-2 text-center">{{request.requestEmail}}</td>
+				</tr>
+				<tr>							
+					<td colspan="12" class="text-center info">
+						<h4>Select a request to 'edit'</h4>
+					</td>
+				</tr>				
+			</table>
+		</div>
 	</div>
 </div>
 

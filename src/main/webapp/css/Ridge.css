@@ -1,19 +1,25 @@
 @CHARSET "ISO-8859-1";
 body {
-	 background: url('https://cdn.pixabay.com/photo/2016/04/24/19/12/champagne-cork-1350404_1280.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
+	background-image: url("../images/prism.png");
+    background-repeat: repeat;
+   /* background-position: center center;
     background-attachment: fixed;    
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.4);
     background-color: hsl(230, 30%, 35%);
-    background-blend-mode: lighten;
+    background-blend-mode: lighten;*/
 }
 #color1 {
 	background-color:#EBEBEB;
 }
 #color2 {
 	background-color:#829CD0;
+}
+#color3 {
+	background-color:#20368F;
+}
+#color4 {
+	background-color:black;
 }
 tr:nth-child(even){
 	background-color:#6D6D6D;
