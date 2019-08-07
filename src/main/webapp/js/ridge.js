@@ -49,6 +49,13 @@ RidgeApp.controller('RidgeController', function($scope, $http) {
 			requestPhoneNumber : '',
 			requestEmail : ''			
 	};
+	$scope.item = {
+			itemNumber : '',
+			itemName : '',
+			createTime : '',
+			description : '',
+			type : 'wine'								
+	};
 	$scope.showEditDelete = false;
 	$scope.showRequestBoard = true;
 	$scope.textPreferred = true;
@@ -96,6 +103,54 @@ RidgeApp.controller('RidgeController', function($scope, $http) {
 		.then(function(response) {
 			$scope.requests = response.data;
 			console.log('number of current requests: ' + $scope.requests.length);
+		}, function(response) {
+			console.log('error HTTP GET requests: ' + response.status);
+		});
+	}
+	
+	$scope.getAllNewItems = function(){
+		$scope.items = [{"type" : "retrieving all new items..."}];
+		
+		$http.get("/TheRidge/webapi/controller/getAllNewItems")
+		.then(function(response) {
+			$scope.items = response.data;
+			console.log('number of current items: ' + $scope.items.length);
+		}, function(response) {
+			console.log('error HTTP GET requests: ' + response.status);
+		});
+	}
+	
+	$scope.getAllNewWineItems = function(){
+		$scope.wineItems = [{"type" : "retrieving all new wine items..."}];
+		
+		$http.get("/TheRidge/webapi/controller/getAllNewWineItems")
+		.then(function(response) {
+			$scope.wineItems = response.data;
+			console.log('number of current items: ' + $scope.wineItems.length);
+		}, function(response) {
+			console.log('error HTTP GET requests: ' + response.status);
+		});
+	}
+	
+	$scope.getAllNewLiquorItems = function(){
+		$scope.liquorItems = [{"type" : "retrieving all new liquor items..."}];
+		
+		$http.get("/TheRidge/webapi/controller/getAllNewLiquorItems")
+		.then(function(response) {
+			$scope.liquorItems = response.data;
+			console.log('number of current items: ' + $scope.liquorItems.length);
+		}, function(response) {
+			console.log('error HTTP GET requests: ' + response.status);
+		});
+	}
+	
+	$scope.getAllNewBeerItems = function(){
+		$scope.beerItems = [{"type" : "retrieving all new beer items..."}];
+		
+		$http.get("/TheRidge/webapi/controller/getAllNewBeerItems")
+		.then(function(response) {
+			$scope.beerItems = response.data;
+			console.log('number of current items: ' + $scope.beerItems.length);
 		}, function(response) {
 			console.log('error HTTP GET requests: ' + response.status);
 		});

@@ -7,6 +7,7 @@ import com.TheRidgeWineAndSpirits.dao.MockDao;
 import com.TheRidgeWineAndSpirits.dao.RidgeDao;
 import com.TheRidgeWineAndSpirits.dao.RidgeDaoImpl;
 import com.TheRidgeWineAndSpirits.model.EmailRequest;
+import com.TheRidgeWineAndSpirits.model.Item;
 
 public class RidgeService {
 
@@ -43,6 +44,22 @@ public class RidgeService {
 	public List<EmailRequest> deleteByRequestNumber(int requestNumber) {
 		List<EmailRequest> requests = dao.deleteByRequestNumber(requestNumber);
 		return requests;
+	}
+
+	public List<Item> getAllNewItems() {		
+		return dao.getAllNewItems();
+	}
+
+	public List<Item> getAllNewWineItems() {
+		return dao.getAllNewWineItems();
+	}
+
+	public List<Item> getAllNewLiquorItems() {
+		return dao.getAllNewLiquorItems();
+	}
+
+	public List<Item> getAllNewBeerItems() {
+		return dao.getAllNewBeerItems();
 	}
 
 	

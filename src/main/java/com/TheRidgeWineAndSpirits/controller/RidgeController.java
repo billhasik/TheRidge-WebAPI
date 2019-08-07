@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 import com.TheRidgeWineAndSpirits.Service.RidgeService;
 import com.TheRidgeWineAndSpirits.model.EmailRequest;
+import com.TheRidgeWineAndSpirits.model.Item;
 import com.TheRidgeWineAndSpirits.model.Message;
 
 @Path("controller")
@@ -66,6 +67,38 @@ public class RidgeController {
 	public List<EmailRequest> deleteByKey(@PathParam("value") int requestNumber) {
 		RidgeService service = new RidgeService();
 		return service.deleteByRequestNumber(requestNumber);
+	}
+	
+	@GET
+	@Path("/getAllNewItems")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Item> getAllNewItems(){
+		RidgeService service = new RidgeService();	
+		return service.getAllNewItems();
+	}
+	
+	@GET
+	@Path("/getAllNewWineItems")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Item> getAllNewWineItems(){
+		RidgeService service = new RidgeService();	
+		return service.getAllNewWineItems();
+	}
+	
+	@GET
+	@Path("/getAllNewLiquorItems")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Item> getAllNewLiquorItems(){
+		RidgeService service = new RidgeService();	
+		return service.getAllNewLiquorItems();
+	}
+	
+	@GET
+	@Path("/getAllNewBeerItems")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Item> getAllNewBeerItems(){
+		RidgeService service = new RidgeService();	
+		return service.getAllNewBeerItems();
 	}
 	
 //	@GET             suppose to be a search function for SQL but just used angular instead

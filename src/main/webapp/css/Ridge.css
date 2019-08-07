@@ -28,3 +28,9 @@ tr:nth-child(even){
 tr:nth-child(odd){
 	background-color:#829CD0;
 }
+#line1 {
+	height: 1px;
+  color: black;
+  background-color: black;
+  border: none;
+}

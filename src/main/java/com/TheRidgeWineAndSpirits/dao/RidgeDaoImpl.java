@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.TheRidgeWineAndSpirits.model.EmailRequest;
+import com.TheRidgeWineAndSpirits.model.Item;
 
 public class RidgeDaoImpl implements RidgeDao{
 
@@ -39,6 +40,14 @@ public class RidgeDaoImpl implements RidgeDao{
 													"WHERE requestNumber = ?;";
 	
 	private static String sqlDeleteByRequestNumber = "DELETE FROM ridgecustomerrequest WHERE requestNumber = ?;";
+	
+	private static String sqlGetAllNewItems = "SELECT * FROM newridgeitems;";
+	
+	private static String sqlGetAllNewWineItems = "SELECT * FROM newridgeitems WHERE `type` = \"wine\";";
+	
+	private static String sqlGetAllNewLiquorItems = "SELECT * FROM newridgeitems WHERE `type` = \"liquor\";";
+	
+	private static String sqlGetAllNewBeerItems = "SELECT * FROM newridgeitems WHERE `type` = \"beer\";";
 
 	@Override
 	public List<EmailRequest> getAllRequests() {
@@ -85,6 +94,15 @@ public class RidgeDaoImpl implements RidgeDao{
 		return request;
 	}
 
+	private Item makeItem(ResultSet result) throws SQLException {
+		Item item = new Item();
+		item.setItemNumber(result.getInt("itemNumber"));
+		item.setItemName(result.getString("itemName"));
+		item.setCreateTime(result.getString("createTime"));
+		item.setDescription(result.getString("description"));
+		item.setType(result.getString("type"));
+		return item;
+	}
 	@Override
 	public EmailRequest updateRequest(EmailRequest updateRequest) {
 		int    rowCount = 0;
@@ -217,5 +235,126 @@ public class RidgeDaoImpl implements RidgeDao{
 	public List<EmailRequest> getByRequestProductName(String requestProductName) {
 
 		return null;
+	}
+
+	@Override
+	public List<Item> getAllNewItems() {
+		List<Item> items = new ArrayList<Item>();
+		
+		ResultSet result = null;
+		Statement statement = null;
+		
+		Connection conn = MariaDbUtil.getConnection();
+
+		try {			
+			statement = conn.createStatement();			
+			result = statement.executeQuery(sqlGetAllNewItems);
+			
+			while(result.next()) {		
+				items.add(makeItem(result));				
+			}			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			try {				
+				result.close();
+				statement.close();
+				conn.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}
+		
+		return items;
+	}
+
+	@Override
+	public List<Item> getAllNewWineItems() {
+		List<Item> items = new ArrayList<Item>();
+		
+		ResultSet result = null;
+		Statement statement = null;
+		
+		Connection conn = MariaDbUtil.getConnection();
+
+		try {			
+			statement = conn.createStatement();			
+			result = statement.executeQuery(sqlGetAllNewWineItems);
+			
+			while(result.next()) {		
+				items.add(makeItem(result));				
+			}			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			try {				
+				result.close();
+				statement.close();
+				conn.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}		
+		return items;
+	}
+
+	@Override
+	public List<Item> getAllNewLiquorItems() {
+		List<Item> items = new ArrayList<Item>();
+		
+		ResultSet result = null;
+		Statement statement = null;
+		
+		Connection conn = MariaDbUtil.getConnection();
+
+		try {			
+			statement = conn.createStatement();			
+			result = statement.executeQuery(sqlGetAllNewLiquorItems);
+			
+			while(result.next()) {		
+				items.add(makeItem(result));				
+			}			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			try {				
+				result.close();
+				statement.close();
+				conn.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}		
+		return items;
+	}
+
+	@Override
+	public List<Item> getAllNewBeerItems() {
+		List<Item> items = new ArrayList<Item>();
+		
+		ResultSet result = null;
+		Statement statement = null;
+		
+		Connection conn = MariaDbUtil.getConnection();
+
+		try {			
+			statement = conn.createStatement();			
+			result = statement.executeQuery(sqlGetAllNewBeerItems);
+			
+			while(result.next()) {		
+				items.add(makeItem(result));				
+			}			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {
+			try {				
+				result.close();
+				statement.close();
+				conn.close();
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		}		
+		return items;
 	}
 }

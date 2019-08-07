@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.TheRidgeWineAndSpirits.model.EmailRequest;
+import com.TheRidgeWineAndSpirits.model.Item;
 
 public class MockDao implements RidgeDao {
 
@@ -45,6 +46,34 @@ public class MockDao implements RidgeDao {
 
 	@Override
 	public List<EmailRequest> deleteByRequestNumber(int requestNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Item> getAllNewItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Item> getAllNewWineItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Item> getAllNewLiquorItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Item> getAllNewBeerItems() {
 		// TODO Auto-generated method stub
 		return null;
 	}

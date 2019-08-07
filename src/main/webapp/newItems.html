@@ -1,1 +1,64 @@
-<h2>New Items</h2>
+<div class="container" ng-init="getAllNewWineItems()">
+<div ng-init="getAllNewLiquorItems()"></div>
+<div ng-init="getAllNewBeerItems()"></div>
+	<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10 well text-center" id="color1">
+			<h1>
+				New items this week include:
+			</h1>
+			<div class="row">
+				<div class="col-sm-4">
+					<h2>
+						WINE
+					</h2>
+					<hr id="line1">
+					<h3 ng-repeat="wineItem in wineItems">
+						<ul class="text-left">	
+							<li>	
+								{{wineItem.itemName}}
+								<br>
+								- <span>{{wineItem.description}}</span>
+								<br><br>
+							</li>
+						</ul>
+					</h3>
+				</div>
+				<div class="col-sm-4">
+					<h2>
+						LIQUOR
+					</h2>
+					<hr id="line1">
+					<h3 ng-repeat="liquorItem in liquorItems">
+						<ul class="text-left">	
+							<li>	
+								{{liquorItem.itemName}}
+								<br>
+								- <span>{{liquorItem.description}}</span>
+								<br><br>
+							</li>
+						</ul>
+					</h3>
+				</div>
+				<div class="col-sm-4">
+					<h2>
+						BEER
+					</h2>
+					<hr id="line1">
+					<h3 ng-repeat="beerItem in beerItems">
+						<ul class="text-left">	
+							<li>	
+								{{beerItem.itemName}}
+								<br>
+								- <span>{{beerItem.description}}</span>
+								<br><br>
+							</li>
+						</ul>
+					</h3>
+				</div>				
+			</div>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+
+</div>
