@@ -1,18 +1,5 @@
 <div class="container-fluid" ng-show="showRequestBoard">
-	<div class="row">
-		<div class="text-left col-4">
-				<h5 class="text-left">
-					<div class="well">
-						Please type your username here: <input type="text" ng-model="adminUsername"></input>
-					</div>
-				</h5>
-		</div>
-	</div>
 	<br><br>
-	<h3 class="text-center">
-		Welcome <span ng-bind="adminUsername"></span>, here are the newest customer requests!			
-	</h3>
-	<br>
 	<div class="container" ng-init="getAllRequests()">
 		<div class="row">
 			<h2 colspan="12" class="text-left">

@@ -66,6 +66,8 @@ RidgeApp.controller('RidgeController', function($scope, $http) {
 	$scope.showRequestPage = true;	
 	$scope.showRequestForm = false;
 	
+	
+	
 	$scope.buttonClick = function() {
 		console.log('button clicked!');
 	};
